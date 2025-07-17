@@ -1,0 +1,17 @@
+name = "checkout-nudge"
+main = "api/src/index.js"
+compatibility_date = "2025-07-17"
+account_id = "34ca9e6cbad9fbea3f37b33ac34f835c"
+
+[vars]
+ENVIRONMENT = "production"
+GOOGLE_SHEET_ID = "1QKX0z5XMIlWy_JN-8Y6lnJBXTs9BLbxeb3RlrrlW-ps"
+
+[build]
+upload.format = "modules"
+
+[triggers]
+crons = []
+
+[dev]
+port = 8787

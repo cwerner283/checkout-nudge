@@ -1,53 +1,35 @@
-/**
- * For more details on how to configure Wrangler, refer to:
- * https://developers.cloudflare.com/workers/wrangler/configuration/
- */
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "api",
-	"main": "src/index.ts",
-	"compatibility_date": "2025-07-15",
-	"compatibility_flags": [
-		"global_fetch_strictly_public"
-	],
-	"assets": {
-		"directory": "./public"
-	},
-	"observability": {
-		"enabled": true
-	}
-	/**
-	 * Smart Placement
-	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
-	 */
-	// "placement": { "mode": "smart" },
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "checkout-nudge-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-07-15",
+  "compatibility_flags": [
+    "global_fetch_strictly_public"
+  ],
+  "account_id": "34ca9e6cbad9fbea3f37b33ac34f835c",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public"
+  },
+  "observability": {
+    "enabled": true
+  }
 
-	/**
-	 * Bindings
-	 * Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform, including
-	 * databases, object storage, AI inference, real-time communication and more.
-	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
-	 */
+  // 🔐 Run these to set secrets:
+  // wrangler secret put OPENAI_API_KEY
+  // wrangler secret put TWILIO_SID
+  // wrangler secret put TWILIO_TOKEN
+  // wrangler secret put TWILIO_FROM
+  // wrangler secret put GOOGLE_CREDS_JSON
+  // wrangler secret put SPREADSHEET_ID
 
-	/**
-	 * Environment Variables
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
-	 */
-	// "vars": { "MY_VARIABLE": "production_value" },
-	/**
-	 * Note: Use secrets to store sensitive data.
-	 * https://developers.cloudflare.com/workers/configuration/secrets/
-	 */
-
-	/**
-	 * Static Assets
-	 * https://developers.cloudflare.com/workers/static-assets/binding/
-	 */
-	// "assets": { "directory": "./public/", "binding": "ASSETS" },
-
-	/**
-	 * Service Bindings (communicate between multiple Workers)
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
-	 */
-	// "services": [{ "binding": "MY_SERVICE", "service": "my-service" }]
+  // 📦 When ready for production routing, uncomment below:
+  /*
+  "env": {
+    "production": {
+      "zone_id": "760ac5cf5c240dfdbe3791822d7b71af",
+      "route": "https://api.checkoutnudge.com/*"
+    }
+  }
+  */
 }

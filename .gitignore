@@ -1,0 +1,9 @@
+
+# Checkout Nudge secrets
+.dev.vars
+google-creds.json
+*.key.json
+*.credentials.json
+.env
+.env.*
+*.local
